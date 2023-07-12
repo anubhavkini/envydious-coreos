@@ -1,0 +1,15 @@
+variant: fcos
+version: 1.5.0
+ignition:
+  config:
+    merge:
+    - local: storage.ign
+    - local: users.ign
+    - local: auto-update.ign
+    - local: firewall.ign
+storage:
+  files:
+  - path: /etc/hostname
+    mode: 0644
+    contents:
+      inline: envydious
