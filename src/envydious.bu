@@ -13,3 +13,9 @@ storage:
     mode: 0644
     contents:
       inline: envydious
+  - path: /etc/systemd/logind.conf.d/lid-switch.conf
+    mode: 0644
+    contents:
+      inline: |
+        [Login]
+        HandleLidSwitchExternalPower=ignore
