@@ -5,3 +5,7 @@ passwd:
   - name: core
     ssh_authorized_keys_local:
     - id_ed25519.pub
+  - name: services
+storage:
+  files:
+  - path: /var/lib/systemd/linger/services
