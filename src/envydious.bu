@@ -7,6 +7,7 @@ ignition:
     - local: users.ign
     - local: auto-update.ign
     - local: firewall.ign
+    - local: tailscale.ign
 storage:
   files:
   - path: /etc/hostname

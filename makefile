@@ -13,7 +13,7 @@ $(SRC_DIR)/auto-update.ign: $(SRC_DIR)/auto-update.bu $(DATA_DIR)/updates-strate
 	$(BU) $(BUFLAGS) --files-dir $(DATA_DIR)/ $< --output $@
 
 $(SRC_DIR)/envydious.ign: $(SRC_DIR)/envydious.bu $(SRC_DIR)/auto-update.ign \
-$(SRC_DIR)/firewall.ign $(SRC_DIR)/storage.ign $(SRC_DIR)/users.ign
+$(SRC_DIR)/firewall.ign $(SRC_DIR)/storage.ign $(SRC_DIR)/tailscale.ign $(SRC_DIR)/users.ign
 	$(BU) $(BUFLAGS) --files-dir $(SRC_DIR)/ $< --output $@
 
 $(SRC_DIR)/firewall.ign: $(SRC_DIR)/firewall.bu $(DATA_DIR)/iptables $(DATA_DIR)/ip6tables
@@ -21,6 +21,10 @@ $(SRC_DIR)/firewall.ign: $(SRC_DIR)/firewall.bu $(DATA_DIR)/iptables $(DATA_DIR)
 
 $(SRC_DIR)/storage.ign: $(SRC_DIR)/storage.bu
 	$(BU) $(BUFLAGS) $< --output $@
+
+$(SRC_DIR)/tailscale.ign: $(SRC_DIR)/tailscale.bu $(DATA_DIR)/rpm-ostree-install-tailscale.service \
+$(DATA_DIR)/rpm-ostree-install-tailscale.sh
+	$(BU) $(BUFLAGS) --files-dir $(DATA_DIR)/ $< --output $@
 
 $(SRC_DIR)/users.ign: $(SRC_DIR)/users.bu $(DATA_DIR)/id_ed25519.pub
 	$(BU) $(BUFLAGS) --files-dir $(DATA_DIR)/ $< --output $@
