@@ -1,0 +1,29 @@
+{
+	"name": "CoreOS",
+	"image": "quay.io/fedora/fedora",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils": {
+			"installZsh": "false",
+			"installOhMyZsh": "false"
+		}
+	},
+	"postCreateCommand": "sudo dnf install -y butane ignition-validate make",
+
+	"remoteUser": "vscode",
+	"containerUser": "vscode",
+
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"files.associations": {
+					"*.bu": "yaml",
+					"*.ign": "json"
+				}
+			},
+			"extensions": [
+				"bungcip.better-toml",
+				"ms-vscode.makefile-tools"
+			]
+		}
+	}
+}

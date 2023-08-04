@@ -1,5 +1,0 @@
-FROM fedora:latest
-COPY common-redhat.sh /tmp/library-scripts/
-RUN sh /tmp/library-scripts/common-redhat.sh \
-&& yum install -y butane ignition-validate make \
-&& yum clean all && rm -rf /tmp/library-scripts
